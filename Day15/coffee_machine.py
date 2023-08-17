@@ -38,10 +38,36 @@ if ask_for_drink == "off":
 elif ask_for_drink == "report":
     print(f"Water: {resources['water']}ml\nMilk: {resources['milk']}ml\nCoffee: {resources['coffee']}g\nMoney: $0")
 
+# Check resources sufficient
+elif ask_for_drink == "espresso":
+    if resources['water'] < MENU['espresso']['ingredients']['water']:
+        print("Sorry there is not enough water.")
+    elif resources['coffee'] < MENU['espresso']['ingredients']['coffee']:
+        print("Sorry there is not enough coffee.")
+
+elif ask_for_drink == "latte":
+    if resources['water'] < MENU['latte']['ingredients']['water']:
+        print("Sorry there is not enough water.")
+    elif resources['coffee'] < MENU['latte']['ingredients']['coffee']:
+        print("Sorry there is not enough coffee.")
+    elif resources['milk'] < MENU['latte']['ingredients']['milk']:
+        print("Sorry there is not enough milk.")
+
+elif ask_for_drink == "cappuccino":
+    if resources['water'] < MENU['cappuccino']['ingredients']['water']:
+        print("Sorry there is not enough water.")
+    elif resources['coffee'] < MENU['cappuccino']['ingredients']['coffee']:
+        print("Sorry there is not enough coffee.")
+    elif resources['milk'] < MENU['cappuccino']['ingredients']['milk']:
+        print("Sorry there is not enough milk.")
+
+
 print("Please insert coins.")
 
 quarters = input("how many quarters?: ")
 dimes = input("how many dimes?: ")
 nickles = input("how many nickles?: ")
 pennies = input("how many pennies?: ")
+
+
 
