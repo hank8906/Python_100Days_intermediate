@@ -90,8 +90,6 @@ def hirs_spot():
     for color in range(len(colors)):
         rgb_colors.append(colors[color].rgb)
 
-    # print(rgb_colors)
-
     formatted_rgb = []
     for rgb in rgb_colors:
         rgb_value = f"({rgb.r},{rgb.g},{rgb.b})"
@@ -107,6 +105,7 @@ def hirs_spot():
     number_of_dots = 100
 
     for dot_count in range(1, number_of_dots + 1):
+        # 將 numeric color tuple 轉換成 Turtle 模組接受的顏色字串格式
         turtle.dot(20, "#%02x%02x%02x" % random.choice(formatted_rgb))
         turtle.fd(50)
 
@@ -118,7 +117,7 @@ def hirs_spot():
             turtle.setheading(0)
 
 
-hirs_spot()
+# hirs_spot()
 
 screen = Screen()
 screen.exitonclick()
