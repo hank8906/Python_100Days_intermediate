@@ -1,11 +1,12 @@
 from turtle import Turtle
 
-X_POSITION = [0, -20, -40]
+X_POSITION = [(0,0), (-20,0), (-40,0)]
 DISTANCE = 20
 UP = 90
 DOWN = 270
 RIGHT = 0
 LEFT = 180
+
 
 class Snake:
     """To illustrate all the attributes and actions about snake"""
@@ -16,12 +17,20 @@ class Snake:
         self.head = self.segments[0]
 
     def create_snake(self):
-        for index in X_POSITION:
-            turtle = Turtle(shape="square")
-            turtle.color("white")
-            turtle.penup()
-            turtle.setx(index)
-            self.segments.append(turtle)
+        for position in X_POSITION:
+            self.add_segments(position)
+
+    def add_segments(self, position):
+        """create snakes and add them into segments[]"""
+        turtle = Turtle(shape="square")
+        turtle.color("white")
+        turtle.penup()
+        turtle.goto(position)
+        self.segments.append(turtle)
+
+    def extend(self):
+        """extend the snake for one segment in tail"""
+        self.add_segments(self.segments[-1].position())
 
     def move(self):
         # let segments move from last to first continually, to success the position and update their index
