@@ -7,15 +7,17 @@ class Ball(Turtle):
         self.color("purple")
         self.penup()
         self.setheading(45)
-        self.speed("fastest")
-        self.x_move = 1
-        self.y_move = 1
+        # self.speed("fastest")
+        self.x_move = 10
+        self.y_move = 10
+        self.move_speed = 0.05
 
     def bounce(self):
         self.y_move *= -1
 
     def bounce_paddle(self):
         self.x_move *= -1
+        self.move_speed *= 0.97
 
     def move_ball(self):
         new_x = self.xcor() + self.x_move
