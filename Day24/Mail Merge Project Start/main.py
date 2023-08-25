@@ -1,6 +1,10 @@
 
 import os
 
+# .目前的目錄
+# /根目錄
+# ..上一層目錄
+
 output_folder = "./Output/ReadyToSend/"
 
 with open("./Input/Names/invited_names.txt") as file:
