@@ -7,10 +7,10 @@ import os
 
 output_folder = "./Output/ReadyToSend/"
 
-with open("./Input/Names/invited_names.txt") as file:
+with open("Input/Names/invited_names.txt") as file:
     names = file.readlines()
     for name in names:
-        with open("./Input/Letters/starting_letter.txt") as letter:
+        with open("Input/Letters/starting_letter.txt") as letter:
             content = letter.read()
             invite_name = name.strip()
             output_file_path = os.path.join(output_folder, f"{invite_name}.txt")
