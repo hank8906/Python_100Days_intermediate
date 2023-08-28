@@ -11,11 +11,17 @@ WORK_MIN = 25
 SHORT_BREAK_MIN = 5
 LONG_BREAK_MIN = 20
 reps = 0
+timer = ""
 
 
 # ---------------------------- TIMER RESET ------------------------------- #
 def time_reset():
+    window.after_cancel(timer)
     canvas.itemconfig(time_text, text="00:00")
+    timer_text.config(text="Timer")
+    check.config(text="")
+    global reps
+    reps = 0
 
 
 # ---------------------------- TIMER MECHANISM ------------------------------- #
@@ -29,19 +35,20 @@ def start_count_down():
 
     if reps % 2 == 1:
         count_down(work_min)
-        timer.config(text="Work")
+        timer_text.config(text="Work")
 
     elif reps % 2 == 0:
         count_down(short_break_min)
-        timer.config(text="Short break", fg=RED)
+        timer_text.config(text="Short break", fg=PINK)
 
-    elif reps == 8:
+    elif reps % 8 == 0:
         count_down(long_break_min)
-        timer.config(text="Long break", fg=RED)
+        timer_text.config(text="Long break", fg=RED)
 
 
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- # 
 def count_down(count):
+
     # change count to minute and second
     minute = math.floor(count / 60)
     second = count % 60
@@ -55,9 +62,14 @@ def count_down(count):
     # show count down on the canvas
     canvas.itemconfig(time_text, text=f"{minute}:{second}")
     if count > 0:
-        window.after(1000, count_down, count - 1)
+        global timer
+        timer = window.after(1000, count_down, count - 1)
     else:
         start_count_down()
+        mark = ""
+        for _ in range(math.floor(reps/2)):
+            mark += "✅"
+        check.config(text=mark)
 
 
 # ---------------------------- UI SETUP ------------------------------- #
@@ -72,11 +84,11 @@ time_text = canvas.create_text(100, 130, text="00:00", fill="white", font=(FONT_
 canvas.grid(row=1, column=1)
 
 # Timer Label
-timer = Label(text="Timer", fg=GREEN, font=(FONT_NAME, 40, "bold"), highlightthickness=0, bg=YELLOW)
-timer.grid(row=0, column=1)
+timer_text = Label(text="Timer", fg=GREEN, font=(FONT_NAME, 40, "bold"), highlightthickness=0, bg=YELLOW)
+timer_text.grid(row=0, column=1)
 
 # Check Label
-check = Label(text="✅", fg=GREEN, font=(FONT_NAME, 12, "bold"), highlightthickness=0, bg=YELLOW)
+check = Label(fg=GREEN, font=(FONT_NAME, 12, "bold"), highlightthickness=0, bg=YELLOW)
 check.grid(row=3, column=1)
 
 # Start and Reset button
