@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1a25d4b5-020a-43a3-88ab-5a81a3a0c242" name="Changes" comment="Day30">
-      <change afterPath="$PROJECT_DIR$/intermediate/Day37/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/intermediate/Day36/__MACOSX/._stock-news-extrahard-start" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/intermediate/Day36/__MACOSX/stock-news-extrahard-start/._.DS_Store" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/intermediate/Day36/__MACOSX/stock-news-extrahard-start/._.project_config" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/intermediate/Day36/__MACOSX/stock-news-extrahard-start/._main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/intermediate/Day37/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/intermediate/Day37/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
